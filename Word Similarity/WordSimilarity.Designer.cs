@@ -31,6 +31,7 @@
             WordInput = new TextBox();
             GivenWord = new Label();
             Score = new Label();
+            Reset = new Button();
             SuspendLayout();
             // 
             // WordInput
@@ -38,7 +39,7 @@
             WordInput.BackColor = SystemColors.WindowText;
             WordInput.Font = new Font("맑은 고딕", 20F, FontStyle.Regular, GraphicsUnit.Point, 129);
             WordInput.ForeColor = SystemColors.Window;
-            WordInput.Location = new Point(119, 165);
+            WordInput.Location = new Point(38, 171);
             WordInput.Name = "WordInput";
             WordInput.Size = new Size(231, 61);
             WordInput.TabIndex = 0;
@@ -50,7 +51,7 @@
             GivenWord.BorderStyle = BorderStyle.Fixed3D;
             GivenWord.Font = new Font("맑은 고딕", 20F);
             GivenWord.ForeColor = SystemColors.Control;
-            GivenWord.Location = new Point(119, 45);
+            GivenWord.Location = new Point(38, 51);
             GivenWord.Name = "GivenWord";
             GivenWord.Size = new Size(133, 56);
             GivenWord.TabIndex = 1;
@@ -63,12 +64,24 @@
             Score.BorderStyle = BorderStyle.Fixed3D;
             Score.Font = new Font("맑은 고딕", 20F);
             Score.ForeColor = SystemColors.Control;
-            Score.Location = new Point(119, 289);
+            Score.Location = new Point(38, 295);
             Score.Name = "Score";
             Score.Size = new Size(133, 56);
             Score.TabIndex = 2;
             Score.Text = "label2";
             Score.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Reset
+            // 
+            Reset.Font = new Font("맑은 고딕", 14F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            Reset.ForeColor = SystemColors.ControlText;
+            Reset.Location = new Point(223, 298);
+            Reset.Name = "Reset";
+            Reset.Size = new Size(112, 53);
+            Reset.TabIndex = 3;
+            Reset.Text = "reset";
+            Reset.UseVisualStyleBackColor = true;
+            Reset.Click += Reset_Click;
             // 
             // WordSimilarity
             // 
@@ -76,6 +89,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlText;
             ClientSize = new Size(466, 423);
+            Controls.Add(Reset);
             Controls.Add(Score);
             Controls.Add(GivenWord);
             Controls.Add(WordInput);
@@ -90,5 +104,6 @@
         private TextBox WordInput;
         private Label GivenWord;
         private Label Score;
+        private Button Reset;
     }
 }

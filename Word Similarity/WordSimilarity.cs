@@ -40,6 +40,8 @@ namespace Word_Similarity
                     givenNorm += givenVector[i] * givenVector[i];
                 }
                 Score.Text = (dot / Math.Sqrt(norm * givenNorm) * 100).ToString("F1") + "%";
+
+
                 // label1.Text = vector.Length.ToString() + " " + givenVector.Length.ToString() + "\n";
                 // foreach (var i in vector)
                 // {
@@ -51,6 +53,13 @@ namespace Word_Similarity
                 //     label1.Text += i.ToString() + " ";
                 // }
             }
+        }
+
+        private void Reset_Click(object sender, EventArgs e)
+        {
+            string path = @"D:\\wordList.txt";
+            string randomWord = RandomWordSelector.GetRandomWord(path);
+            GivenWord.Text = randomWord;
         }
     }
 }
