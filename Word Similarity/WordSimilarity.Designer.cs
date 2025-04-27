@@ -66,9 +66,9 @@
             Score.ForeColor = SystemColors.Control;
             Score.Location = new Point(38, 295);
             Score.Name = "Score";
-            Score.Size = new Size(133, 56);
+            Score.Size = new Size(111, 56);
             Score.TabIndex = 2;
-            Score.Text = "label2";
+            Score.Text = "0.0%";
             Score.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // Reset
