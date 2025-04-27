@@ -41,7 +41,6 @@ namespace Word_Similarity
                 }
                 Score.Text = (dot / Math.Sqrt(norm * givenNorm) * 100).ToString("F1") + "%";
 
-
                 // label1.Text = vector.Length.ToString() + " " + givenVector.Length.ToString() + "\n";
                 // foreach (var i in vector)
                 // {
