@@ -15,7 +15,7 @@ namespace Word_Similarity
     public partial class WordSimilarity : Form
     {
         private FastTextWrapper fastText;
-        private string filePath = "cc.ko.300.bin"; // ¸ðµ¨ °æ·Î
+        private string filePath = "D:\\cc.ko.300.bin"; // ¸ðµ¨ °æ·Î
 
         public WordSimilarity()
         {
@@ -32,7 +32,7 @@ namespace Word_Similarity
                 var vector = fastText.GetWordVector(WordInput.Text);
                 var givenVector = fastText.GetWordVector(GivenWord.Text);
                 var score = Math.Abs(vector[0] - givenVector[0]);
-                Score.Text = $"Score: {score:F2}";
+                Score.Text = ((1 - score) * 100).ToString("F3");
             }
         }
     }
