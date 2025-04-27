@@ -22,7 +22,7 @@ namespace Word_Similarity
             InitializeComponent();
             fastText = new FastTextWrapper();
             fastText.LoadModel(filePath);
-            GivenWord.Text = "사과"; // 초기 단어 설정
+            GivenWord.Text = "이름"; // 초기 단어 설정
         }
 
         private void WordInput_KeyDown(object sender, KeyEventArgs e)
@@ -31,8 +31,25 @@ namespace Word_Similarity
             {
                 var vector = fastText.GetWordVector(WordInput.Text);
                 var givenVector = fastText.GetWordVector(GivenWord.Text);
-                var score = Math.Abs(vector[0] - givenVector[0]);
-                Score.Text = ((1 - score) * 100).ToString("F3");
+                double norm = 0, givenNorm = 0;
+                double dot = 0;
+                for (int i = 0; i < vector.Length; i++)
+                {
+                    dot += vector[i] * givenVector[i];
+                    norm += vector[i] * vector[i];
+                    givenNorm += givenVector[i] * givenVector[i];
+                }
+                Score.Text = (dot / Math.Sqrt(norm * givenNorm) * 100).ToString("F1") + "%";
+                // label1.Text = vector.Length.ToString() + " " + givenVector.Length.ToString() + "\n";
+                // foreach (var i in vector)
+                // {
+                //     label1.Text += i.ToString() + " ";
+                // }
+                // label1.Text += "\n";
+                // foreach (var i in givenVector)
+                // {
+                //     label1.Text += i.ToString() + " ";
+                // }
             }
         }
     }
