@@ -28,47 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
+            WordInput = new TextBox();
+            GivenWord = new Label();
+            Score = new Label();
             SuspendLayout();
             // 
-            // textBox1
+            // WordInput
             // 
-            textBox1.BackColor = SystemColors.WindowText;
-            textBox1.Font = new Font("맑은 고딕", 20F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            textBox1.ForeColor = SystemColors.Window;
-            textBox1.Location = new Point(119, 165);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(231, 61);
-            textBox1.TabIndex = 0;
-            textBox1.KeyDown += this.textBox1_KeyDown;
+            WordInput.BackColor = SystemColors.WindowText;
+            WordInput.Font = new Font("맑은 고딕", 20F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            WordInput.ForeColor = SystemColors.Window;
+            WordInput.Location = new Point(119, 165);
+            WordInput.Name = "WordInput";
+            WordInput.Size = new Size(231, 61);
+            WordInput.TabIndex = 0;
+            WordInput.TextAlign = HorizontalAlignment.Center;
+            WordInput.KeyDown += WordInput_KeyDown;
             // 
-            // label1
+            // GivenWord
             // 
-            label1.AutoSize = true;
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Font = new Font("맑은 고딕", 20F);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(170, 44);
-            label1.Name = "label1";
-            label1.Size = new Size(133, 56);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            GivenWord.AutoSize = true;
+            GivenWord.BorderStyle = BorderStyle.Fixed3D;
+            GivenWord.Font = new Font("맑은 고딕", 20F);
+            GivenWord.ForeColor = SystemColors.Control;
+            GivenWord.Location = new Point(170, 44);
+            GivenWord.Name = "GivenWord";
+            GivenWord.Size = new Size(133, 56);
+            GivenWord.TabIndex = 1;
+            GivenWord.Text = "label1";
+            GivenWord.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // Score
             // 
-            label2.AutoSize = true;
-            label2.BorderStyle = BorderStyle.Fixed3D;
-            label2.Font = new Font("맑은 고딕", 20F);
-            label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(170, 287);
-            label2.Name = "label2";
-            label2.Size = new Size(133, 56);
-            label2.TabIndex = 2;
-            label2.Text = "label2";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            Score.AutoSize = true;
+            Score.BorderStyle = BorderStyle.Fixed3D;
+            Score.Font = new Font("맑은 고딕", 20F);
+            Score.ForeColor = SystemColors.Control;
+            Score.Location = new Point(170, 287);
+            Score.Name = "Score";
+            Score.Size = new Size(133, 56);
+            Score.TabIndex = 2;
+            Score.Text = "label2";
+            Score.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // WordSimilarity
             // 
@@ -76,10 +77,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlText;
             ClientSize = new Size(466, 423);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
-            Cursor = Cursors.Default;
+            Controls.Add(Score);
+            Controls.Add(GivenWord);
+            Controls.Add(WordInput);
             Name = "WordSimilarity";
             Text = "WordSimilarity";
             ResumeLayout(false);
@@ -88,8 +88,8 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private Label label1;
-        private Label label2;
+        private TextBox WordInput;
+        private Label GivenWord;
+        private Label Score;
     }
 }
