@@ -39,7 +39,7 @@ namespace Word_Similarity
                     norm += vector[i] * vector[i];
                     givenNorm += givenVector[i] * givenVector[i];
                 }
-                Score.Text = (dot / Math.Sqrt(norm * givenNorm) * 100).ToString("F1") + "%";
+                Score.Text = (dot / Math.Sqrt(norm * givenNorm) * 100).ToString("F1") + "%"; // 점수 계산
 
                 // label1.Text = vector.Length.ToString() + " " + givenVector.Length.ToString() + "\n";
                 // foreach (var i in vector)
@@ -54,7 +54,7 @@ namespace Word_Similarity
             }
         }
 
-        private void Reset_Click(object sender, EventArgs e)
+        private void Reset_Click(object sender, EventArgs e) // 버튼 클릭시 랜덤으로 단어 초기화
         {
             string path = @"D:\\wordList.txt";
             string randomWord = RandomWordSelector.GetRandomWord(path);
