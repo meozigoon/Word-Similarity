@@ -22,7 +22,9 @@ namespace Word_Similarity
             InitializeComponent();
             fastText = new FastTextWrapper();
             fastText.LoadModel(filePath);
-            GivenWord.Text = "이름"; // 초기 단어 설정
+            string path = @"D:\\wordList-utf8.txt";
+            string randomWord = RandomWordSelector.GetRandomWord(path);
+            GivenWord.Text = randomWord; // 초기 단어 설정
         }
 
         private void WordInput_KeyDown(object sender, KeyEventArgs e)
@@ -31,6 +33,15 @@ namespace Word_Similarity
             {
                 var vector = fastText.GetWordVector(WordInput.Text);
                 var givenVector = fastText.GetWordVector(GivenWord.Text);
+                // var vector1 = fastText.GetWordVector("도쿄");
+                // var vector2 = fastText.GetWordVector("일본");
+                // var vector3 = fastText.GetWordVector("한국");
+                // var givenVector = fastText.GetWordVector("서울");
+                // var vector = fastText.GetWordVector("서울");
+                // for (int i = 0; i < vector.Length; i++)
+                // {
+                //     givenVector[i] = vector1[i] - vector2[i] + vector3[i]; // 벡터 연산
+                // }
                 double norm = 0, givenNorm = 0;
                 double dot = 0;
                 for (int i = 0; i < vector.Length; i++)
@@ -56,7 +67,7 @@ namespace Word_Similarity
 
         private void Reset_Click(object sender, EventArgs e) // 버튼 클릭시 랜덤으로 단어 초기화
         {
-            string path = @"D:\\wordList.txt";
+            string path = @"D:\\wordList-utf8.txt";
             string randomWord = RandomWordSelector.GetRandomWord(path);
             GivenWord.Text = randomWord;
         }
