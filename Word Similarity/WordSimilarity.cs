@@ -33,7 +33,7 @@ namespace Word_Similarity
             {
                 var vector = fastText.GetWordVector(WordInput.Text);
                 var givenVector = fastText.GetWordVector(GivenWord.Text);
-                // 도쿄 - 일본 + 한국 과 서울 벡터 비교 -> 56.8%
+                // (도쿄 - 일본 + 한국)과 서울 벡터 비교 -> 56.8%
                 // var vector1 = fastText.GetWordVector("도쿄");
                 // var vector2 = fastText.GetWordVector("일본");
                 // var vector3 = fastText.GetWordVector("한국");
