@@ -33,6 +33,7 @@ namespace Word_Similarity
             {
                 var vector = fastText.GetWordVector(WordInput.Text);
                 var givenVector = fastText.GetWordVector(GivenWord.Text);
+                // 도쿄 - 일본 + 한국 과 서울 벡터 비교 -> 56.8%
                 // var vector1 = fastText.GetWordVector("도쿄");
                 // var vector2 = fastText.GetWordVector("일본");
                 // var vector3 = fastText.GetWordVector("한국");
@@ -42,6 +43,7 @@ namespace Word_Similarity
                 // {
                 //     givenVector[i] = vector1[i] - vector2[i] + vector3[i]; // 벡터 연산
                 // }
+
                 double norm = 0, givenNorm = 0;
                 double dot = 0;
                 for (int i = 0; i < vector.Length; i++)
@@ -52,6 +54,7 @@ namespace Word_Similarity
                 }
                 Score.Text = (dot / Math.Sqrt(norm * givenNorm) * 100).ToString("F1") + "%"; // 점수 계산
 
+                // 벡터 내용 확인 (모두 출력)
                 // label1.Text = vector.Length.ToString() + " " + givenVector.Length.ToString() + "\n";
                 // foreach (var i in vector)
                 // {
