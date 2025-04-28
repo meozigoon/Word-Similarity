@@ -15,14 +15,14 @@ namespace Word_Similarity
     public partial class WordSimilarity : Form
     {
         private FastTextWrapper fastText;
-        private string filePath = "D:\\cc.ko.300.bin"; // 모델 경로
+        private string filePath = "D:\\Machine Learning\\cc.ko.300.bin"; // 모델 경로
 
         public WordSimilarity()
         {
             InitializeComponent();
             fastText = new FastTextWrapper();
             fastText.LoadModel(filePath);
-            string path = @"D:\\wordList-utf8.txt";
+            string path = @"D:\\Machine Learning\\wordList-utf8.txt";
             string randomWord = RandomWordSelector.GetRandomWord(path);
             GivenWord.Text = randomWord; // 초기 단어 설정
         }
@@ -70,7 +70,7 @@ namespace Word_Similarity
 
         private void Reset_Click(object sender, EventArgs e) // 버튼 클릭시 랜덤으로 단어 초기화
         {
-            string path = @"D:\\wordList-utf8.txt";
+            string path = @"D:\\Machine Learning\\wordList-utf8.txt";
             string randomWord = RandomWordSelector.GetRandomWord(path);
             GivenWord.Text = randomWord;
         }
