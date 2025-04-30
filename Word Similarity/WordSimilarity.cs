@@ -33,13 +33,13 @@ namespace Word_Similarity
             {
                 var vector = fastText.GetWordVector(WordInput.Text);
                 var givenVector = fastText.GetWordVector(GivenWord.Text);
-                // (도쿄 - 일본 + 한국)과 서울 벡터 비교 -> 56.8%
-                // (일본 - 도쿄) 과 (한국 - 서울) 벡터 비교 -> 54.6%
-                // var vector1 = fastText.GetWordVector("도쿄");
-                // var vector2 = fastText.GetWordVector("일본");
-                // var vector3 = fastText.GetWordVector("한국");
+                // (도쿄 - 일본 + 한국)과 서울 벡터 비교 -> 56.8% (이전 버전) - 부정확
+                // (일본 - 도쿄) 과 (한국 - 서울) 벡터 비교 -> 77.3% (수정 버전)
+                // var vector1 = fastText.GetWordVector("여자");
+                // var vector2 = fastText.GetWordVector("남자");
+                // var vector3 = fastText.GetWordVector("왕");
                 // var givenVector = fastText.GetWordVector("서울");
-                // var vector = fastText.GetWordVector("서울");
+                // var vector = fastText.GetWordVector("여왕");
                 // for (int i = 0; i < vector.Length; i++)
                 // {
                 //     givenVector[i] = vector2[i] - vector1[i]; // 벡터 연산
@@ -54,7 +54,7 @@ namespace Word_Similarity
                     norm += vector[i] * vector[i];
                     givenNorm += givenVector[i] * givenVector[i];
                 }
-                Score.Text = (dot / Math.Sqrt(norm * givenNorm) * 100).ToString("F1") + "%"; // 점수 계산
+                Score.Text = ((dot / Math.Sqrt(norm * givenNorm) + 1) / 2 * 100).ToString("F1") + "%"; // 점수 계산
 
                 // 벡터 내용 확인 (모두 출력)
                 // label1.Text = vector.Length.ToString() + " " + givenVector.Length.ToString() + "\n";
