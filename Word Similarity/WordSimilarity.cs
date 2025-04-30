@@ -22,7 +22,7 @@ namespace Word_Similarity
             InitializeComponent();
             fastText = new FastTextWrapper();
             fastText.LoadModel(filePath);
-            string path = @"D:\\Machine Learning\\wordList-utf8.txt";
+            string path = "D:\\Machine Learning\\Word Similarity\\wordList-utf8.txt";
             string randomWord = RandomWordSelector.GetRandomWord(path);
             GivenWord.Text = randomWord; // 초기 단어 설정
         }
@@ -34,6 +34,7 @@ namespace Word_Similarity
                 var vector = fastText.GetWordVector(WordInput.Text);
                 var givenVector = fastText.GetWordVector(GivenWord.Text);
                 // (도쿄 - 일본 + 한국)과 서울 벡터 비교 -> 56.8%
+                // (일본 - 도쿄) 과 (한국 - 서울) 벡터 비교 -> 54.6%
                 // var vector1 = fastText.GetWordVector("도쿄");
                 // var vector2 = fastText.GetWordVector("일본");
                 // var vector3 = fastText.GetWordVector("한국");
@@ -41,7 +42,8 @@ namespace Word_Similarity
                 // var vector = fastText.GetWordVector("서울");
                 // for (int i = 0; i < vector.Length; i++)
                 // {
-                //     givenVector[i] = vector1[i] - vector2[i] + vector3[i]; // 벡터 연산
+                //     givenVector[i] = vector2[i] - vector1[i]; // 벡터 연산
+                //     vector[i] = vector3[i] - vector[i]; // 벡터 연산
                 // }
 
                 double norm = 0, givenNorm = 0;
@@ -70,7 +72,7 @@ namespace Word_Similarity
 
         private void Reset_Click(object sender, EventArgs e) // 버튼 클릭시 랜덤으로 단어 초기화
         {
-            string path = @"D:\\Machine Learning\\wordList-utf8.txt";
+            string path = "D:\\Machine Learning\\Word Similarity\\wordList-utf8.txt";
             string randomWord = RandomWordSelector.GetRandomWord(path);
             GivenWord.Text = randomWord;
         }
